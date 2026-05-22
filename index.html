@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campo Eléctrico en la Vida Real</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="nav">
+        <div>
+          <p class="kicker">Física II · UNAP</p>
+          <h1>Campo Eléctrico en la Vida Real</h1>
+        </div>
+        <button id="themeBtn" class="btn ghost">Modo oscuro</button>
+      </div>
+
+      <div class="hero-grid">
+        <section class="hero-text">
+          <span class="badge">Proyecto interactivo</span>
+          <h2>Ejemplos de campo eléctrico</h2>
+          <p>
+            Aquí puedes explorar cómo el campo eléctrico aparece en pantallas táctiles,
+            puertas automáticas, botones capacitivos, sensores de nivel e industria.
+          </p>
+          <div class="actions">
+            <button class="btn primary" data-scroll="simulador">Ver simulador</button>
+            <button class="btn secondary" data-scroll="ejemplos">Ver ejemplos</button>
+          </div>
+        </section>
+
+        <aside class="hero-card">
+          <div class="orb">
+            <div class="orb-inner">
+              <span id="stateLabel">Estado 0</span>
+              <strong id="stateName">Campo débil</strong>
+            </div>
+          </div>
+          <div class="mini-leds">
+            <span class="dot blue active"></span>
+            <span class="dot green"></span>
+            <span class="dot red"></span>
+          </div>
+          <p id="stateDesc">Objeto lejos del sensor. La señal se mantiene estable.</p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel" id="simulador">
+      <div class="section-title">
+        <h3>Simulador general</h3>
+        <p>Mueve el control y observa cómo cambia el estado del sistema.</p>
+      </div>
+
+      <div class="sim-grid">
+        <div class="control-box">
+          <label for="distance">Distancia al sensor</label>
+          <input id="distance" type="range" min="0" max="100" value="80" />
+          <div class="range-row">
+            <span>Cerca</span>
+            <strong id="distanceValue">80 cm</strong>
+            <span>Lejos</span>
+          </div>
+
+          <div class="meter">
+            <div class="meter-fill" id="meterFill"></div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <span>Valor ADC</span>
+              <strong id="adcValue">0</strong>
+            </div>
+            <div class="stat">
+              <span>Desviación δ</span>
+              <strong id="deltaValue">0</strong>
+            </div>
+            <div class="stat">
+              <span>Salida</span>
+              <strong id="outputValue">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="device-box">
+          <div class="device">
+            <div class="wire wire-blue"></div>
+            <div class="wire wire-green"></div>
+            <div class="wire wire-red"></div>
+
+            <div class="board">
+              <div class="board-top"></div>
+              <div class="led-row">
+                <span class="dot blue active"></span>
+                <span class="dot green"></span>
+                <span class="dot red"></span>
+              </div>
+              <div class="buzzer" id="buzzer"></div>
+            </div>
+          </div>
+
+          <div class="state-boxes">
+            <div class="state-box active" id="box0">
+              <h4>Estado 0</h4>
+              <p>Campo débil · LED azul</p>
+            </div>
+            <div class="state-box" id="box1">
+              <h4>Estado 1</h4>
+              <p>Campo medio · LED verde</p>
+            </div>
+            <div class="state-box" id="box2">
+              <h4>Estado 2</h4>
+              <p>Campo alto · LED rojo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="ejemplos">
+      <div class="section-title">
+        <h3>Ejemplos de la vida real</h3>
+        <p>Haz clic en cada ejemplo para cambiar la simulación.</p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-example="celular">Pantalla táctil</button>
+        <button class="tab" data-example="puerta">Puerta automática</button>
+        <button class="tab" data-example="boton">Botón táctil</button>
+        <button class="tab" data-example="nivel">Nivel de líquido</button>
+        <button class="tab" data-example="industria">Industria</button>
+      </div>
+
+      <div class="example-grid">
+        <article class="example-card">
+          <h4 id="exampleTitle">Pantalla táctil capacitiva</h4>
+          <p id="exampleText">
+            El dedo cambia el campo eléctrico en la superficie de la pantalla.
+          </p>
+
+          <div class="example-controls" id="exampleControls"></div>
+
+          <div class="example-visual" id="exampleVisual"></div>
+        </article>
+
+        <article class="example-card info">
+          <h4>Relación con tu proyecto</h4>
+          <ul id="exampleList">
+            <li>Se detectan variaciones del campo eléctrico.</li>
+            <li>El sistema interpreta cambios pequeños como eventos reales.</li>
+            <li>Se usa en dispositivos cotidianos e industria.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <h3>Resumen visual</h3>
+        <p>Tu detector sirve como demostración de aplicaciones capacitivas reales.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h4>Pantallas táctiles</h4>
+          <p>Detectan contacto por cambios en el campo eléctrico.</p>
+        </article>
+        <article class="card">
+          <h4>Puertas automáticas</h4>
+          <p>Detectan proximidad antes del contacto físico.</p>
+        </article>
+        <article class="card">
+          <h4>Botones táctiles</h4>
+          <p>Activan funciones con un toque en la superficie.</p>
+        </article>
+        <article class="card">
+          <h4>Sensores de nivel</h4>
+          <p>Detectan líquido o material en tanques y procesos.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Detector de Campo Eléctrico con Arduino · Física II · UNAP</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
